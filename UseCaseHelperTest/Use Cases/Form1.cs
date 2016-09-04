@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Use_Cases
 {
-    public partial class Form1 : Form
+    public partial class  Form1 : Form
     {
         public Form1()
         {
@@ -25,7 +25,7 @@ namespace Use_Cases
         private void button1_Click(object sender, EventArgs e)
         {
             g.Clear(Color.White);
-            MessageBox.Show("Hello");
+
         }
     }
 }

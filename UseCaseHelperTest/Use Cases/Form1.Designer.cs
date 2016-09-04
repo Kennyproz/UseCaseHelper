@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.rbActor = new System.Windows.Forms.RadioButton();
             this.rbUseCase = new System.Windows.Forms.RadioButton();
             this.rbLine = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbTeken = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbAdd = new System.Windows.Forms.RadioButton();
             this.rbRemove = new System.Windows.Forms.RadioButton();
+            this.rbAdd = new System.Windows.Forms.RadioButton();
             this.btClear = new System.Windows.Forms.Button();
+            this.pbActorOne = new System.Windows.Forms.PictureBox();
+            this.pbActorTwo = new System.Windows.Forms.PictureBox();
+            this.pbActorThree = new System.Windows.Forms.PictureBox();
+            this.lbActorOne = new System.Windows.Forms.Label();
+            this.lbActorTwo = new System.Windows.Forms.Label();
+            this.lbActorThree = new System.Windows.Forms.Label();
+            this.lbActorName = new System.Windows.Forms.Label();
+            this.tbActorName = new System.Windows.Forms.TextBox();
+            this.btClearActors = new System.Windows.Forms.Button();
+            this.btNewForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorThree)).BeginInit();
             this.SuspendLayout();
             // 
             // rbActor
@@ -92,7 +106,7 @@
             this.pbTeken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbTeken.Location = new System.Drawing.Point(29, 126);
             this.pbTeken.Name = "pbTeken";
-            this.pbTeken.Size = new System.Drawing.Size(483, 259);
+            this.pbTeken.Size = new System.Drawing.Size(514, 459);
             this.pbTeken.TabIndex = 4;
             this.pbTeken.TabStop = false;
             // 
@@ -107,21 +121,10 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modus";
             // 
-            // rbAdd
-            // 
-            this.rbAdd.AutoSize = true;
-            this.rbAdd.Location = new System.Drawing.Point(3, 16);
-            this.rbAdd.Name = "rbAdd";
-            this.rbAdd.Size = new System.Drawing.Size(44, 17);
-            this.rbAdd.TabIndex = 0;
-            this.rbAdd.TabStop = true;
-            this.rbAdd.Text = "Add";
-            this.rbAdd.UseVisualStyleBackColor = true;
-            // 
             // rbRemove
             // 
             this.rbRemove.AutoSize = true;
-            this.rbRemove.Location = new System.Drawing.Point(3, 39);
+            this.rbRemove.Location = new System.Drawing.Point(14, 47);
             this.rbRemove.Name = "rbRemove";
             this.rbRemove.Size = new System.Drawing.Size(65, 17);
             this.rbRemove.TabIndex = 1;
@@ -129,21 +132,133 @@
             this.rbRemove.Text = "Remove";
             this.rbRemove.UseVisualStyleBackColor = true;
             // 
+            // rbAdd
+            // 
+            this.rbAdd.AutoSize = true;
+            this.rbAdd.Location = new System.Drawing.Point(14, 24);
+            this.rbAdd.Name = "rbAdd";
+            this.rbAdd.Size = new System.Drawing.Size(44, 17);
+            this.rbAdd.TabIndex = 0;
+            this.rbAdd.TabStop = true;
+            this.rbAdd.Text = "Add";
+            this.rbAdd.UseVisualStyleBackColor = true;
+            // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(437, 21);
+            this.btClear.Location = new System.Drawing.Point(468, 50);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 6;
-            this.btClear.Text = "Clear all";
+            this.btClear.Text = "Clear All";
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pbActorOne
+            // 
+            this.pbActorOne.Image = ((System.Drawing.Image)(resources.GetObject("pbActorOne.Image")));
+            this.pbActorOne.Location = new System.Drawing.Point(45, 145);
+            this.pbActorOne.Name = "pbActorOne";
+            this.pbActorOne.Size = new System.Drawing.Size(73, 109);
+            this.pbActorOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActorOne.TabIndex = 7;
+            this.pbActorOne.TabStop = false;
+            // 
+            // pbActorTwo
+            // 
+            this.pbActorTwo.Image = ((System.Drawing.Image)(resources.GetObject("pbActorTwo.Image")));
+            this.pbActorTwo.Location = new System.Drawing.Point(45, 290);
+            this.pbActorTwo.Name = "pbActorTwo";
+            this.pbActorTwo.Size = new System.Drawing.Size(73, 109);
+            this.pbActorTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActorTwo.TabIndex = 8;
+            this.pbActorTwo.TabStop = false;
+            // 
+            // pbActorThree
+            // 
+            this.pbActorThree.Image = ((System.Drawing.Image)(resources.GetObject("pbActorThree.Image")));
+            this.pbActorThree.Location = new System.Drawing.Point(45, 435);
+            this.pbActorThree.Name = "pbActorThree";
+            this.pbActorThree.Size = new System.Drawing.Size(73, 109);
+            this.pbActorThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbActorThree.TabIndex = 9;
+            this.pbActorThree.TabStop = false;
+            // 
+            // lbActorOne
+            // 
+            this.lbActorOne.AutoSize = true;
+            this.lbActorOne.BackColor = System.Drawing.Color.White;
+            this.lbActorOne.Location = new System.Drawing.Point(63, 257);
+            this.lbActorOne.Name = "lbActorOne";
+            this.lbActorOne.Size = new System.Drawing.Size(0, 13);
+            this.lbActorOne.TabIndex = 10;
+            // 
+            // lbActorTwo
+            // 
+            this.lbActorTwo.AutoSize = true;
+            this.lbActorTwo.BackColor = System.Drawing.Color.White;
+            this.lbActorTwo.Location = new System.Drawing.Point(63, 402);
+            this.lbActorTwo.Name = "lbActorTwo";
+            this.lbActorTwo.Size = new System.Drawing.Size(0, 13);
+            this.lbActorTwo.TabIndex = 11;
+            // 
+            // lbActorThree
+            // 
+            this.lbActorThree.AutoSize = true;
+            this.lbActorThree.BackColor = System.Drawing.Color.White;
+            this.lbActorThree.Location = new System.Drawing.Point(63, 547);
+            this.lbActorThree.Name = "lbActorThree";
+            this.lbActorThree.Size = new System.Drawing.Size(0, 13);
+            this.lbActorThree.TabIndex = 12;
+            // 
+            // lbActorName
+            // 
+            this.lbActorName.AutoSize = true;
+            this.lbActorName.Location = new System.Drawing.Point(292, 95);
+            this.lbActorName.Name = "lbActorName";
+            this.lbActorName.Size = new System.Drawing.Size(64, 13);
+            this.lbActorName.TabIndex = 13;
+            this.lbActorName.Text = "Actor name:";
+            // 
+            // tbActorName
+            // 
+            this.tbActorName.Location = new System.Drawing.Point(362, 92);
+            this.tbActorName.Name = "tbActorName";
+            this.tbActorName.Size = new System.Drawing.Size(100, 20);
+            this.tbActorName.TabIndex = 14;
+            // 
+            // btClearActors
+            // 
+            this.btClearActors.Location = new System.Drawing.Point(469, 21);
+            this.btClearActors.Name = "btClearActors";
+            this.btClearActors.Size = new System.Drawing.Size(75, 23);
+            this.btClearActors.TabIndex = 15;
+            this.btClearActors.Text = "Clear Actors";
+            this.btClearActors.UseVisualStyleBackColor = true;
+            // 
+            // btNewForm
+            // 
+            this.btNewForm.Location = new System.Drawing.Point(377, 21);
+            this.btNewForm.Name = "btNewForm";
+            this.btNewForm.Size = new System.Drawing.Size(75, 23);
+            this.btNewForm.TabIndex = 16;
+            this.btNewForm.Text = "New Form";
+            this.btNewForm.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 397);
+            this.ClientSize = new System.Drawing.Size(556, 597);
+            this.Controls.Add(this.btNewForm);
+            this.Controls.Add(this.btClearActors);
+            this.Controls.Add(this.tbActorName);
+            this.Controls.Add(this.lbActorName);
+            this.Controls.Add(this.lbActorThree);
+            this.Controls.Add(this.lbActorTwo);
+            this.Controls.Add(this.lbActorOne);
+            this.Controls.Add(this.pbActorThree);
+            this.Controls.Add(this.pbActorTwo);
+            this.Controls.Add(this.pbActorOne);
             this.Controls.Add(this.btClear);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pbTeken);
@@ -157,6 +272,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbActorThree)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,6 +291,16 @@
         private System.Windows.Forms.RadioButton rbRemove;
         private System.Windows.Forms.RadioButton rbAdd;
         private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.PictureBox pbActorOne;
+        private System.Windows.Forms.PictureBox pbActorTwo;
+        private System.Windows.Forms.PictureBox pbActorThree;
+        private System.Windows.Forms.Label lbActorOne;
+        private System.Windows.Forms.Label lbActorTwo;
+        private System.Windows.Forms.Label lbActorThree;
+        private System.Windows.Forms.Label lbActorName;
+        private System.Windows.Forms.TextBox tbActorName;
+        private System.Windows.Forms.Button btClearActors;
+        private System.Windows.Forms.Button btNewForm;
     }
 }
 
