@@ -109,6 +109,7 @@
             this.pbTeken.Size = new System.Drawing.Size(514, 459);
             this.pbTeken.TabIndex = 4;
             this.pbTeken.TabStop = false;
+            this.pbTeken.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbTeken_MouseClick);
             // 
             // groupBox2
             // 
@@ -267,6 +268,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "User Case Helper Ken";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).EndInit();
