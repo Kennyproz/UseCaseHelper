@@ -111,6 +111,12 @@ namespace Use_Cases
                 }
             }
         }
+        
+        private void addForms()
+        {   
+                Form newFormulier = new Form2();
+                newFormulier.ShowDialog();
+        }
 
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
         {
@@ -121,6 +127,11 @@ namespace Use_Cases
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btNewForm_Click(object sender, EventArgs e)
+        {
+            addForms();
         }
     }
 }

@@ -46,7 +46,6 @@
             this.lbActorThree = new System.Windows.Forms.Label();
             this.lbActorName = new System.Windows.Forms.Label();
             this.tbActorName = new System.Windows.Forms.TextBox();
-            this.btClearActors = new System.Windows.Forms.Button();
             this.btNewForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).BeginInit();
@@ -59,7 +58,7 @@
             // rbActor
             // 
             this.rbActor.AutoSize = true;
-            this.rbActor.Location = new System.Drawing.Point(38, 43);
+            this.rbActor.Location = new System.Drawing.Point(9, 19);
             this.rbActor.Name = "rbActor";
             this.rbActor.Size = new System.Drawing.Size(50, 17);
             this.rbActor.TabIndex = 0;
@@ -70,7 +69,7 @@
             // rbUseCase
             // 
             this.rbUseCase.AutoSize = true;
-            this.rbUseCase.Location = new System.Drawing.Point(9, 45);
+            this.rbUseCase.Location = new System.Drawing.Point(9, 42);
             this.rbUseCase.Name = "rbUseCase";
             this.rbUseCase.Size = new System.Drawing.Size(70, 17);
             this.rbUseCase.TabIndex = 1;
@@ -81,7 +80,7 @@
             // rbLine
             // 
             this.rbLine.AutoSize = true;
-            this.rbLine.Location = new System.Drawing.Point(38, 91);
+            this.rbLine.Location = new System.Drawing.Point(9, 65);
             this.rbLine.Name = "rbLine";
             this.rbLine.Size = new System.Drawing.Size(45, 17);
             this.rbLine.TabIndex = 2;
@@ -92,9 +91,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbUseCase);
+            this.groupBox1.Controls.Add(this.rbActor);
+            this.groupBox1.Controls.Add(this.rbLine);
             this.groupBox1.Location = new System.Drawing.Point(29, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(116, 99);
+            this.groupBox1.Size = new System.Drawing.Size(116, 94);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Elementen";
@@ -104,9 +105,9 @@
             // 
             this.pbTeken.BackColor = System.Drawing.Color.White;
             this.pbTeken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbTeken.Location = new System.Drawing.Point(29, 126);
+            this.pbTeken.Location = new System.Drawing.Point(29, 142);
             this.pbTeken.Name = "pbTeken";
-            this.pbTeken.Size = new System.Drawing.Size(514, 459);
+            this.pbTeken.Size = new System.Drawing.Size(514, 478);
             this.pbTeken.TabIndex = 4;
             this.pbTeken.TabStop = false;
             this.pbTeken.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbTeken_MouseClick);
@@ -117,7 +118,7 @@
             this.groupBox2.Controls.Add(this.rbAdd);
             this.groupBox2.Location = new System.Drawing.Point(170, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(116, 99);
+            this.groupBox2.Size = new System.Drawing.Size(116, 94);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modus";
@@ -157,7 +158,7 @@
             // pbActorOne
             // 
             this.pbActorOne.Image = ((System.Drawing.Image)(resources.GetObject("pbActorOne.Image")));
-            this.pbActorOne.Location = new System.Drawing.Point(45, 145);
+            this.pbActorOne.Location = new System.Drawing.Point(45, 180);
             this.pbActorOne.Name = "pbActorOne";
             this.pbActorOne.Size = new System.Drawing.Size(73, 109);
             this.pbActorOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -167,7 +168,7 @@
             // pbActorTwo
             // 
             this.pbActorTwo.Image = ((System.Drawing.Image)(resources.GetObject("pbActorTwo.Image")));
-            this.pbActorTwo.Location = new System.Drawing.Point(45, 290);
+            this.pbActorTwo.Location = new System.Drawing.Point(45, 325);
             this.pbActorTwo.Name = "pbActorTwo";
             this.pbActorTwo.Size = new System.Drawing.Size(73, 109);
             this.pbActorTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -177,7 +178,7 @@
             // pbActorThree
             // 
             this.pbActorThree.Image = ((System.Drawing.Image)(resources.GetObject("pbActorThree.Image")));
-            this.pbActorThree.Location = new System.Drawing.Point(45, 435);
+            this.pbActorThree.Location = new System.Drawing.Point(45, 470);
             this.pbActorThree.Name = "pbActorThree";
             this.pbActorThree.Size = new System.Drawing.Size(73, 109);
             this.pbActorThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -188,7 +189,7 @@
             // 
             this.lbActorOne.AutoSize = true;
             this.lbActorOne.BackColor = System.Drawing.Color.White;
-            this.lbActorOne.Location = new System.Drawing.Point(63, 257);
+            this.lbActorOne.Location = new System.Drawing.Point(63, 292);
             this.lbActorOne.Name = "lbActorOne";
             this.lbActorOne.Size = new System.Drawing.Size(0, 13);
             this.lbActorOne.TabIndex = 10;
@@ -197,7 +198,7 @@
             // 
             this.lbActorTwo.AutoSize = true;
             this.lbActorTwo.BackColor = System.Drawing.Color.White;
-            this.lbActorTwo.Location = new System.Drawing.Point(63, 402);
+            this.lbActorTwo.Location = new System.Drawing.Point(63, 437);
             this.lbActorTwo.Name = "lbActorTwo";
             this.lbActorTwo.Size = new System.Drawing.Size(0, 13);
             this.lbActorTwo.TabIndex = 11;
@@ -206,7 +207,7 @@
             // 
             this.lbActorThree.AutoSize = true;
             this.lbActorThree.BackColor = System.Drawing.Color.White;
-            this.lbActorThree.Location = new System.Drawing.Point(63, 547);
+            this.lbActorThree.Location = new System.Drawing.Point(63, 582);
             this.lbActorThree.Name = "lbActorThree";
             this.lbActorThree.Size = new System.Drawing.Size(0, 13);
             this.lbActorThree.TabIndex = 12;
@@ -214,7 +215,7 @@
             // lbActorName
             // 
             this.lbActorName.AutoSize = true;
-            this.lbActorName.Location = new System.Drawing.Point(292, 95);
+            this.lbActorName.Location = new System.Drawing.Point(292, 26);
             this.lbActorName.Name = "lbActorName";
             this.lbActorName.Size = new System.Drawing.Size(64, 13);
             this.lbActorName.TabIndex = 13;
@@ -222,36 +223,27 @@
             // 
             // tbActorName
             // 
-            this.tbActorName.Location = new System.Drawing.Point(362, 92);
+            this.tbActorName.Location = new System.Drawing.Point(362, 23);
             this.tbActorName.Name = "tbActorName";
             this.tbActorName.Size = new System.Drawing.Size(100, 20);
             this.tbActorName.TabIndex = 14;
             // 
-            // btClearActors
-            // 
-            this.btClearActors.Location = new System.Drawing.Point(469, 21);
-            this.btClearActors.Name = "btClearActors";
-            this.btClearActors.Size = new System.Drawing.Size(75, 23);
-            this.btClearActors.TabIndex = 15;
-            this.btClearActors.Text = "Clear Actors";
-            this.btClearActors.UseVisualStyleBackColor = true;
-            // 
             // btNewForm
             // 
-            this.btNewForm.Location = new System.Drawing.Point(377, 21);
+            this.btNewForm.Location = new System.Drawing.Point(468, 21);
             this.btNewForm.Name = "btNewForm";
             this.btNewForm.Size = new System.Drawing.Size(75, 23);
             this.btNewForm.TabIndex = 16;
             this.btNewForm.Text = "New Form";
             this.btNewForm.UseVisualStyleBackColor = true;
+            this.btNewForm.Click += new System.EventHandler(this.btNewForm_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 597);
+            this.ClientSize = new System.Drawing.Size(556, 632);
             this.Controls.Add(this.btNewForm);
-            this.Controls.Add(this.btClearActors);
             this.Controls.Add(this.tbActorName);
             this.Controls.Add(this.lbActorName);
             this.Controls.Add(this.lbActorThree);
@@ -263,8 +255,6 @@
             this.Controls.Add(this.btClear);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pbTeken);
-            this.Controls.Add(this.rbLine);
-            this.Controls.Add(this.rbActor);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "User Case Helper Ken";
@@ -301,7 +291,6 @@
         private System.Windows.Forms.Label lbActorThree;
         private System.Windows.Forms.Label lbActorName;
         private System.Windows.Forms.TextBox tbActorName;
-        private System.Windows.Forms.Button btClearActors;
         private System.Windows.Forms.Button btNewForm;
     }
 }
