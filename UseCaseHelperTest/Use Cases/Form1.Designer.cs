@@ -47,6 +47,8 @@
             this.lbActorName = new System.Windows.Forms.Label();
             this.tbActorName = new System.Windows.Forms.TextBox();
             this.btNewForm = new System.Windows.Forms.Button();
+            this.lbUseCaseName = new System.Windows.Forms.Label();
+            this.tbUseCaseName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -238,11 +240,29 @@
             this.btNewForm.UseVisualStyleBackColor = true;
             this.btNewForm.Click += new System.EventHandler(this.btNewForm_Click);
             // 
+            // lbUseCaseName
+            // 
+            this.lbUseCaseName.AutoSize = true;
+            this.lbUseCaseName.Location = new System.Drawing.Point(292, 55);
+            this.lbUseCaseName.Name = "lbUseCaseName";
+            this.lbUseCaseName.Size = new System.Drawing.Size(56, 13);
+            this.lbUseCaseName.TabIndex = 17;
+            this.lbUseCaseName.Text = "Use Case:";
+            // 
+            // tbUseCaseName
+            // 
+            this.tbUseCaseName.Location = new System.Drawing.Point(362, 52);
+            this.tbUseCaseName.Name = "tbUseCaseName";
+            this.tbUseCaseName.Size = new System.Drawing.Size(100, 20);
+            this.tbUseCaseName.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 632);
+            this.Controls.Add(this.tbUseCaseName);
+            this.Controls.Add(this.lbUseCaseName);
             this.Controls.Add(this.btNewForm);
             this.Controls.Add(this.tbActorName);
             this.Controls.Add(this.lbActorName);
@@ -292,6 +312,8 @@
         private System.Windows.Forms.Label lbActorName;
         private System.Windows.Forms.TextBox tbActorName;
         private System.Windows.Forms.Button btNewForm;
+        private System.Windows.Forms.Label lbUseCaseName;
+        private System.Windows.Forms.TextBox tbUseCaseName;
     }
 }
 

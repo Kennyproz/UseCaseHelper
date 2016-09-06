@@ -19,6 +19,7 @@ namespace Use_Cases
         }
         Graphics g;
         Pen MyPen = new Pen(Color.Black, 4);
+        
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -122,6 +123,20 @@ namespace Use_Cases
         {
             g = pbTeken.CreateGraphics();
             addRemoveActors();
+            Draw drawings = new Draw(e.Y, e.X, g);
+            if (rbAdd.Checked && rbUseCase.Checked == true)
+            {
+                if (tbUseCaseName.Text != "")
+                {
+                    drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text);
+                    addForms();
+                }
+                else
+                {
+                    MessageBox.Show("Oops, No Use Case Name!");
+                }
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
