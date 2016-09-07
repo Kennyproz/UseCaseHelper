@@ -19,6 +19,7 @@ namespace Use_Cases
         }
         public List<UseCase> UseCases = new List<UseCase>();
         public List<Actors> Actoren = new List<Actors>();
+        public List<Form2> Cases = new List<Form2>(); 
         Actors ActorOne;
         Actors ActorTwo;
         Actors ActorThree;
@@ -33,8 +34,15 @@ namespace Use_Cases
 
         private void button1_Click(object sender, EventArgs e)
         {
-            g.Clear(Color.White);
-            hideActors();
+            if (g != null)
+            {
+                g.Clear(Color.White);
+            }
+            else
+            {
+                MessageBox.Show("Nothing to Clear!");
+            }
+          
 
         }
         private void hideActors()
@@ -42,9 +50,6 @@ namespace Use_Cases
             pbActorOne.Hide();
             pbActorTwo.Hide();
             pbActorThree.Hide();
-            lbActorOne.Text = "";
-            lbActorTwo.Text = "";
-            lbActorThree.Text = "";
         }
 
         private void addRemoveActors()
@@ -127,12 +132,16 @@ namespace Use_Cases
         private void addForms()
         {   
             Form2 newFormulier = new Form2();
-            newFormulier.ShowDialog();
             UseCases.Add(newFormulier.Case);
-            if (lbActorOne.Text != "")
-            {
-                newFormulier.CbActoren.Items.Add(lbActorOne.Text);
-            }
+            newFormulier.CbActoren.Refresh();
+            newFormulier.CbActoren.DataSource = Actoren;
+            //newFormulier.TbNaam.Text = newFormulier.Case.Naam;
+            newFormulier.ShowDialog();
+            
+        }
+        private void EditForms()
+        {
+            
         }
 
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
@@ -162,11 +171,6 @@ namespace Use_Cases
         private void Form1_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void btNewForm_Click(object sender, EventArgs e)
-        {
-           // addForms();
         }
         
         public PictureBox PictureboxOne

@@ -31,11 +31,17 @@ namespace Use_Cases
 
         private void cbActoren_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  lbActoren.Items.Add(cbActoren.SelectedIndex as Actors);
+            
         }
         public ComboBox CbActoren
         {
             get { return cbActoren; }
+            set { cbActoren = value; }
+        }
+        public TextBox TbNaam
+        {
+            get { return tbNaam;  }
+            set { tbNaam = value; }
         }
      
     }

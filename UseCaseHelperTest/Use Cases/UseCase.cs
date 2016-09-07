@@ -14,6 +14,8 @@ namespace Use_Cases
         private string beschrijving;
         private string uitzondering;
         private string resultaat;
+        private int x;
+        private int y;
 
         public string Naam
         {
@@ -93,6 +95,32 @@ namespace Use_Cases
             }
         }
 
+        public int X
+        {
+            get
+            {
+                return x;
+            }
+
+            set
+            {
+                x = value;
+            }
+        }
+
+        public int Y
+        {
+            get
+            {
+                return y;
+            }
+
+            set
+            {
+                y = value;
+            }
+        }
+
         public UseCase(string naam, string samenvatting, string aannamen, string beschrijving, string uitzondering, string resultaat)
         {
             this.naam = naam;
@@ -104,8 +132,7 @@ namespace Use_Cases
         }
         public UseCase(string naam)
         {
-            this.naam = naam;
-            
+            this.naam = naam; 
         }
     }
 }

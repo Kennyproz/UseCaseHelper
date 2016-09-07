@@ -15,7 +15,7 @@ namespace Use_Cases
         Pen MyPen;
         SolidBrush MyBrush;
         Font font;
-        UseCase Case;
+        List<UseCase> Case = new List<UseCase>();
         public List<Graphics> items = new List<Graphics>();
         public Draw (int Y, int X, Graphics teken)
         {

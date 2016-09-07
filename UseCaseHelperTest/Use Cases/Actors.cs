@@ -63,18 +63,17 @@ namespace Use_Cases
         public void AddActor(string name)
         {
             actorlabel.Text = name;
-            actorimage.Show();
-           // actorlabel.Show();
-             
+            actorimage.Show();    
         }
         public void RemoveActor()
         {
             actorlabel.Text = "";
-            //actorimage.Name = "";
             name = "";
             actorimage.Hide();
-
-
+        }
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

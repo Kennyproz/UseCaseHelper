@@ -46,9 +46,9 @@
             this.lbActorThree = new System.Windows.Forms.Label();
             this.lbActorName = new System.Windows.Forms.Label();
             this.tbActorName = new System.Windows.Forms.TextBox();
-            this.btNewForm = new System.Windows.Forms.Button();
             this.lbUseCaseName = new System.Windows.Forms.Label();
             this.tbUseCaseName = new System.Windows.Forms.TextBox();
+            this.rbEdit = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,6 +116,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbEdit);
             this.groupBox2.Controls.Add(this.rbRemove);
             this.groupBox2.Controls.Add(this.rbAdd);
             this.groupBox2.Location = new System.Drawing.Point(170, 21);
@@ -128,7 +129,7 @@
             // rbRemove
             // 
             this.rbRemove.AutoSize = true;
-            this.rbRemove.Location = new System.Drawing.Point(14, 47);
+            this.rbRemove.Location = new System.Drawing.Point(14, 65);
             this.rbRemove.Name = "rbRemove";
             this.rbRemove.Size = new System.Drawing.Size(65, 17);
             this.rbRemove.TabIndex = 1;
@@ -139,7 +140,7 @@
             // rbAdd
             // 
             this.rbAdd.AutoSize = true;
-            this.rbAdd.Location = new System.Drawing.Point(14, 24);
+            this.rbAdd.Location = new System.Drawing.Point(14, 19);
             this.rbAdd.Name = "rbAdd";
             this.rbAdd.Size = new System.Drawing.Size(44, 17);
             this.rbAdd.TabIndex = 0;
@@ -149,7 +150,7 @@
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(468, 50);
+            this.btClear.Location = new System.Drawing.Point(468, 20);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 6;
@@ -230,16 +231,6 @@
             this.tbActorName.Size = new System.Drawing.Size(100, 20);
             this.tbActorName.TabIndex = 14;
             // 
-            // btNewForm
-            // 
-            this.btNewForm.Location = new System.Drawing.Point(468, 21);
-            this.btNewForm.Name = "btNewForm";
-            this.btNewForm.Size = new System.Drawing.Size(75, 23);
-            this.btNewForm.TabIndex = 16;
-            this.btNewForm.Text = "New Form";
-            this.btNewForm.UseVisualStyleBackColor = true;
-            this.btNewForm.Click += new System.EventHandler(this.btNewForm_Click);
-            // 
             // lbUseCaseName
             // 
             this.lbUseCaseName.AutoSize = true;
@@ -256,6 +247,17 @@
             this.tbUseCaseName.Size = new System.Drawing.Size(100, 20);
             this.tbUseCaseName.TabIndex = 18;
             // 
+            // rbEdit
+            // 
+            this.rbEdit.AutoSize = true;
+            this.rbEdit.Location = new System.Drawing.Point(14, 42);
+            this.rbEdit.Name = "rbEdit";
+            this.rbEdit.Size = new System.Drawing.Size(43, 17);
+            this.rbEdit.TabIndex = 2;
+            this.rbEdit.TabStop = true;
+            this.rbEdit.Text = "Edit";
+            this.rbEdit.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +265,6 @@
             this.ClientSize = new System.Drawing.Size(556, 632);
             this.Controls.Add(this.tbUseCaseName);
             this.Controls.Add(this.lbUseCaseName);
-            this.Controls.Add(this.btNewForm);
             this.Controls.Add(this.tbActorName);
             this.Controls.Add(this.lbActorName);
             this.Controls.Add(this.lbActorThree);
@@ -311,9 +312,9 @@
         private System.Windows.Forms.Label lbActorThree;
         private System.Windows.Forms.Label lbActorName;
         private System.Windows.Forms.TextBox tbActorName;
-        private System.Windows.Forms.Button btNewForm;
         private System.Windows.Forms.Label lbUseCaseName;
         private System.Windows.Forms.TextBox tbUseCaseName;
+        private System.Windows.Forms.RadioButton rbEdit;
     }
 }
 
