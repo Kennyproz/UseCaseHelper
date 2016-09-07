@@ -17,6 +17,12 @@ namespace Use_Cases
             InitializeComponent();
             hideActors();
         }
+        public List<UseCase> UseCases = new List<UseCase>();
+        public List<Actors> Actoren = new List<Actors>();
+        Actors ActorOne;
+        Actors ActorTwo;
+        Actors ActorThree;
+
         Graphics g;
         Pen MyPen = new Pen(Color.Black, 4);
         
@@ -43,15 +49,18 @@ namespace Use_Cases
 
         private void addRemoveActors()
         {
+            //New add actors
+            
             //Add Actors
             if (rbAdd.Checked && rbActor.Checked == true)
             {
                 if (pbActorOne.Visible == false)
                 {
                     if (tbActorName.Text != "")
-                    { 
-                        pbActorOne.Show();
-                        lbActorOne.Text = tbActorName.Text;
+                    {
+                        ActorOne = new Actors(tbActorName.Text, lbActorOne, pbActorOne);
+                        ActorOne.AddActor(tbActorName.Text);
+                        Actoren.Add(ActorOne);
                     }
                     else
                     {
@@ -62,8 +71,9 @@ namespace Use_Cases
                 {
                     if (tbActorName.Text != "")
                     {
-                        pbActorTwo.Show();
-                        lbActorTwo.Text = tbActorName.Text;
+                        ActorTwo = new Actors(tbActorName.Text, lbActorTwo, pbActorTwo);
+                        ActorTwo.AddActor(tbActorName.Text);
+                        Actoren.Add(ActorTwo); 
                     }
                     else
                     {
@@ -74,8 +84,9 @@ namespace Use_Cases
                 {
                     if (tbActorName.Text != "")
                     {
-                        pbActorThree.Show();
-                        lbActorThree.Text = tbActorName.Text;
+                        ActorThree = new Actors(tbActorName.Text, lbActorThree, pbActorThree);
+                        ActorThree.AddActor(tbActorName.Text);
+                        Actoren.Add(ActorThree);
                     }
                     else
                     {
@@ -91,20 +102,20 @@ namespace Use_Cases
             //Remove Actors
             else if (rbRemove.Checked && rbActor.Checked == true)
             {
-                if (pbActorThree.Visible == true)
+                if (ActorOne.Name == tbActorName.Text)
                 {
-                    pbActorThree.Hide();
-                    lbActorThree.Text = "";
+                    ActorOne.RemoveActor();
+                    Actoren.Remove(ActorOne);
                 }
-                else if (pbActorTwo.Visible == true)
+                else if (ActorTwo.Name == tbActorName.Text)
                 {
-                    pbActorTwo.Hide();
-                    lbActorTwo.Text = "";
+                    ActorTwo.RemoveActor();
+                    Actoren.Remove(ActorTwo);
                 }
-                else if (pbActorOne.Visible == true)
+                else if (ActorThree.Name == tbActorName.Text)
                 {
-                    pbActorOne.Hide();
-                    lbActorOne.Text = "";
+                    ActorThree.RemoveActor();
+                    Actoren.Remove(ActorThree);
                 }
                 else
                 {
@@ -112,11 +123,16 @@ namespace Use_Cases
                 }
             }
         }
-        
+         
         private void addForms()
         {   
-                Form newFormulier = new Form2();
-                newFormulier.ShowDialog();
+            Form2 newFormulier = new Form2();
+            newFormulier.ShowDialog();
+            UseCases.Add(newFormulier.Case);
+            if (lbActorOne.Text != "")
+            {
+                newFormulier.CbActoren.Items.Add(lbActorOne.Text);
+            }
         }
 
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
@@ -136,7 +152,11 @@ namespace Use_Cases
                     MessageBox.Show("Oops, No Use Case Name!");
                 }
             }
-
+            else if (rbRemove.Checked && rbUseCase.Checked == true)
+            {
+                drawings.deleteUseCase(tbUseCaseName.Text);
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -146,7 +166,13 @@ namespace Use_Cases
 
         private void btNewForm_Click(object sender, EventArgs e)
         {
-            addForms();
+           // addForms();
+        }
+        
+        public PictureBox PictureboxOne
+        {
+            get { return pbActorOne; }
+            set { pbActorOne = value; }
         }
     }
 }

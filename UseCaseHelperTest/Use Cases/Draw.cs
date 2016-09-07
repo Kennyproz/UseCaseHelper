@@ -15,9 +15,11 @@ namespace Use_Cases
         Pen MyPen;
         SolidBrush MyBrush;
         Font font;
+        UseCase Case;
+        public List<Graphics> items = new List<Graphics>();
         public Draw (int Y, int X, Graphics teken)
         {
-            MyPen = new Pen(Color.Black,4);
+            MyPen = new Pen(Color.Black,2);
             MyBrush = new SolidBrush(Color.Black);
             font = new Font("Roboto", 12);
             this.teken = teken;
@@ -26,8 +28,14 @@ namespace Use_Cases
         }
         public void DrawUseCase(int X, int Y, string text)
         {
+            
             teken.DrawEllipse(MyPen, X, Y, text.Length * 10, 40);
             teken.DrawString(text, font, MyBrush, X + 5, Y + 8);
+            items.Add(teken);
+        }
+        public void deleteUseCase(string text)
+        {
+            items.Remove(teken);
         }
     }
 }

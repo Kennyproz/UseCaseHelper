@@ -31,7 +31,6 @@
             this.tbResultaat = new System.Windows.Forms.TextBox();
             this.tbUitzonderingen = new System.Windows.Forms.TextBox();
             this.tbAannamen = new System.Windows.Forms.TextBox();
-            this.tbActoren = new System.Windows.Forms.TextBox();
             this.tbSamenvatting = new System.Windows.Forms.TextBox();
             this.tbNaam = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,18 +41,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbBeschrijving = new System.Windows.Forms.TextBox();
+            this.lbActoren = new System.Windows.Forms.ListBox();
+            this.cbActoren = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbResultaat
             // 
-            this.tbResultaat.Location = new System.Drawing.Point(112, 377);
+            this.tbResultaat.Location = new System.Drawing.Point(112, 439);
             this.tbResultaat.Name = "tbResultaat";
             this.tbResultaat.Size = new System.Drawing.Size(272, 20);
             this.tbResultaat.TabIndex = 27;
             // 
             // tbUitzonderingen
             // 
-            this.tbUitzonderingen.Location = new System.Drawing.Point(112, 246);
+            this.tbUitzonderingen.Location = new System.Drawing.Point(112, 308);
             this.tbUitzonderingen.Multiline = true;
             this.tbUitzonderingen.Name = "tbUitzonderingen";
             this.tbUitzonderingen.Size = new System.Drawing.Size(272, 125);
@@ -61,17 +62,10 @@
             // 
             // tbAannamen
             // 
-            this.tbAannamen.Location = new System.Drawing.Point(112, 89);
+            this.tbAannamen.Location = new System.Drawing.Point(112, 151);
             this.tbAannamen.Name = "tbAannamen";
             this.tbAannamen.Size = new System.Drawing.Size(272, 20);
             this.tbAannamen.TabIndex = 24;
-            // 
-            // tbActoren
-            // 
-            this.tbActoren.Location = new System.Drawing.Point(112, 64);
-            this.tbActoren.Name = "tbActoren";
-            this.tbActoren.Size = new System.Drawing.Size(272, 20);
-            this.tbActoren.TabIndex = 23;
             // 
             // tbSamenvatting
             // 
@@ -90,7 +84,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 381);
+            this.label7.Location = new System.Drawing.Point(19, 443);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 20;
@@ -99,7 +93,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 249);
+            this.label6.Location = new System.Drawing.Point(13, 311);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 19;
@@ -108,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 117);
+            this.label5.Location = new System.Drawing.Point(13, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 18;
@@ -117,7 +111,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 92);
+            this.label4.Location = new System.Drawing.Point(13, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 17;
@@ -152,21 +146,39 @@
             // 
             // tbBeschrijving
             // 
-            this.tbBeschrijving.Location = new System.Drawing.Point(112, 114);
+            this.tbBeschrijving.Location = new System.Drawing.Point(112, 176);
             this.tbBeschrijving.Multiline = true;
             this.tbBeschrijving.Name = "tbBeschrijving";
             this.tbBeschrijving.Size = new System.Drawing.Size(272, 125);
             this.tbBeschrijving.TabIndex = 25;
             // 
+            // lbActoren
+            // 
+            this.lbActoren.FormattingEnabled = true;
+            this.lbActoren.Location = new System.Drawing.Point(112, 90);
+            this.lbActoren.Name = "lbActoren";
+            this.lbActoren.Size = new System.Drawing.Size(272, 56);
+            this.lbActoren.TabIndex = 28;
+            // 
+            // cbActoren
+            // 
+            this.cbActoren.FormattingEnabled = true;
+            this.cbActoren.Location = new System.Drawing.Point(112, 63);
+            this.cbActoren.Name = "cbActoren";
+            this.cbActoren.Size = new System.Drawing.Size(272, 21);
+            this.cbActoren.TabIndex = 29;
+            this.cbActoren.SelectedIndexChanged += new System.EventHandler(this.cbActoren_SelectedIndexChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 411);
+            this.ClientSize = new System.Drawing.Size(402, 474);
+            this.Controls.Add(this.cbActoren);
+            this.Controls.Add(this.lbActoren);
             this.Controls.Add(this.tbResultaat);
             this.Controls.Add(this.tbUitzonderingen);
             this.Controls.Add(this.tbAannamen);
-            this.Controls.Add(this.tbActoren);
             this.Controls.Add(this.tbSamenvatting);
             this.Controls.Add(this.tbNaam);
             this.Controls.Add(this.label7);
@@ -179,6 +191,8 @@
             this.Controls.Add(this.tbBeschrijving);
             this.Name = "Form2";
             this.Text = "Formulier";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +203,6 @@
         private System.Windows.Forms.TextBox tbResultaat;
         private System.Windows.Forms.TextBox tbUitzonderingen;
         private System.Windows.Forms.TextBox tbAannamen;
-        private System.Windows.Forms.TextBox tbActoren;
         private System.Windows.Forms.TextBox tbSamenvatting;
         private System.Windows.Forms.TextBox tbNaam;
         private System.Windows.Forms.Label label7;
@@ -200,5 +213,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbBeschrijving;
+        private System.Windows.Forms.ListBox lbActoren;
+        private System.Windows.Forms.ComboBox cbActoren;
     }
 }
