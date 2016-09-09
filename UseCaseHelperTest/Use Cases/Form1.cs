@@ -127,23 +127,8 @@ namespace Use_Cases
             }
         }
 
-        //private void addForms()
-        //{
-        //    Form2 newFormulier = new Form2(tbUseCaseName.Text);
-        //    UseCases.Add(newFormulier.Case);
-        //    newFormulier.CbActoren.Refresh();
-        //    newFormulier.CbActoren.DataSource = Actoren;
-        //    newFormulier.TbNaam.Text = newFormulier.Case.Naam;
-        //    newFormulier.Show();
-        //}
-        private void EditForms()
-        {
-
-        }
-
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
         {
-
             g = pbTeken.CreateGraphics();
             addRemoveActors();
             Draw drawings = new Draw(e.Y, e.X, g);
@@ -167,7 +152,6 @@ namespace Use_Cases
             if (rbEdit.Checked && rbUseCase.Checked)
             {
                 drawings.saveUseCase(UseCases);
-               
             }
         }
 

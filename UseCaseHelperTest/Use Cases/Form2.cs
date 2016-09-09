@@ -17,24 +17,19 @@ namespace Use_Cases
         public Form2(string naam)
         {
             InitializeComponent();
-            
             Case = new UseCase(naam);
         }
         public Form2(UseCase Case)
         {
             InitializeComponent();
             this.Case = Case;
+            //Returning the Case Information
             tbNaam.Text = Convert.ToString(Case.Naam);
             tbSamenvatting.Text = Case.Samenvatting;
             tbAannamen.Text = Case.Aannamen;
             tbBeschrijving.Text = Case.Beschrijving;
             tbUitzonderingen.Text = Case.Uitzondering  ;
             tbResultaat.Text = Case.Resultaat; 
-        }
-
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-  
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -72,34 +67,10 @@ namespace Use_Cases
             get { return tbNaam;  }
             set { tbNaam = value; }
         }
-        public TextBox TbSamenvatting
-        {
-            get { return tbSamenvatting; }
-            set { tbSamenvatting = value; }
-        }
-        public TextBox TbAannamen
-        {
-            get { return tbAannamen; }
-            set { tbAannamen = value; }
-        }
-        public TextBox TbBeschrijving
-        {
-            get { return tbBeschrijving; }
-            set { tbBeschrijving = value; }
-        }
-        public TextBox TbResultaat
-        {
-            get { return tbResultaat; }
-            set { tbResultaat = value; }
-        }
-        public TextBox TbUitzonderingen
-        {
-            get { return tbUitzonderingen; }
-            set { tbUitzonderingen = value; }
-        }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Saving the Case 
             Case.Naam = tbNaam.Text;
             Case.Samenvatting = tbSamenvatting.Text;
             Case.Aannamen = tbAannamen.Text;
@@ -108,8 +79,6 @@ namespace Use_Cases
             Case.Resultaat = tbResultaat.Text;
             e.Cancel = true;
             this.Hide();
-            
-       
         }
     }
 }

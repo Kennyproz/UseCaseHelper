@@ -121,15 +121,6 @@ namespace Use_Cases
             }
         }
 
-        public UseCase(string naam, string samenvatting, string aannamen, string beschrijving, string uitzondering, string resultaat)
-        {
-            this.naam = naam;
-            this.samenvatting = samenvatting;
-            this.aannamen = aannamen;
-            this.beschrijving = beschrijving;
-            this.uitzondering = uitzondering;
-            this.resultaat = resultaat;
-        }
         public UseCase(string naam)
         {
             this.naam = naam; 
