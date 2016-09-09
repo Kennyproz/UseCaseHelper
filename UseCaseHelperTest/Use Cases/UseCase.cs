@@ -14,6 +14,7 @@ namespace Use_Cases
         private string beschrijving;
         private string uitzondering;
         private string resultaat;
+        private bool select;
         private int x;
         private int y;
 
@@ -118,6 +119,19 @@ namespace Use_Cases
             set
             {
                 y = value;
+            }
+        }
+
+        public bool Select
+        {
+            get
+            {
+                return select;
+            }
+
+            set
+            {
+                select = value;
             }
         }
 

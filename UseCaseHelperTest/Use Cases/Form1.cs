@@ -147,11 +147,11 @@ namespace Use_Cases
             }
             else if (rbRemove.Checked && rbUseCase.Checked)
             {
-                drawings.deleteUseCase(tbUseCaseName.Text,UseCases);
+                drawings.deleteUseCase(UseCases);
             }
             if (rbEdit.Checked && rbUseCase.Checked)
             {
-                drawings.saveUseCase(UseCases);
+                drawings.Selected(UseCases);
             }
         }
 
