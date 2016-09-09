@@ -17,6 +17,7 @@ namespace Use_Cases
         Font font;
         List<UseCase> Case = new List<UseCase>();
         public List<Graphics> items = new List<Graphics>();
+        public List<UseCase> UseCases = new List<UseCase>();
         public Draw (int Y, int X, Graphics teken)
         {
             MyPen = new Pen(Color.Black,2);
@@ -26,16 +27,29 @@ namespace Use_Cases
             this.Y = Y;
             this.X = X;
         }
-        public void DrawUseCase(int X, int Y, string text)
-        {
-            
+        public void DrawUseCase(int X, int Y, string text, List<Actors> ActorList)
+        {    
             teken.DrawEllipse(MyPen, X, Y, text.Length * 10, 40);
             teken.DrawString(text, font, MyBrush, X + 5, Y + 8);
+            
+            Form2 newFormulier = new Form2(text);
+            newFormulier.Case.Y = Y;
+            newFormulier.Case.X = X;
+            UseCases.Add(newFormulier.Case);
+            newFormulier.CbActoren.Refresh();
+            newFormulier.CbActoren.DataSource = ActorList;
+            newFormulier.CbActoren.SelectedIndex = -1;
+            newFormulier.TbNaam.Text = newFormulier.Case.Naam;
+            newFormulier.Show();
             items.Add(teken);
         }
         public void deleteUseCase(string text)
         {
             items.Remove(teken);
+        }
+        private void saveUseCase()
+        {
+           
         }
     }
 }

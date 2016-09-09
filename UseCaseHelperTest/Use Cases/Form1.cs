@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Use_Cases
 {
-    public partial class  Form1 : Form
+    public partial class Form1 : Form
     {
         public Form1()
         {
@@ -19,14 +19,14 @@ namespace Use_Cases
         }
         public List<UseCase> UseCases = new List<UseCase>();
         public List<Actors> Actoren = new List<Actors>();
-        public List<Form2> Cases = new List<Form2>(); 
+        public List<Form2> Cases = new List<Form2>();
         Actors ActorOne;
         Actors ActorTwo;
         Actors ActorThree;
 
         Graphics g;
         Pen MyPen = new Pen(Color.Black, 4);
-        
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -42,7 +42,7 @@ namespace Use_Cases
             {
                 MessageBox.Show("Nothing to Clear!");
             }
-          
+
 
         }
         private void hideActors()
@@ -54,8 +54,6 @@ namespace Use_Cases
 
         private void addRemoveActors()
         {
-            //New add actors
-            
             //Add Actors
             if (rbAdd.Checked && rbActor.Checked == true)
             {
@@ -78,7 +76,7 @@ namespace Use_Cases
                     {
                         ActorTwo = new Actors(tbActorName.Text, lbActorTwo, pbActorTwo);
                         ActorTwo.AddActor(tbActorName.Text);
-                        Actoren.Add(ActorTwo); 
+                        Actoren.Add(ActorTwo);
                     }
                     else
                     {
@@ -128,33 +126,34 @@ namespace Use_Cases
                 }
             }
         }
-         
-        private void addForms()
-        {   
-            Form2 newFormulier = new Form2();
-            UseCases.Add(newFormulier.Case);
-            newFormulier.CbActoren.Refresh();
-            newFormulier.CbActoren.DataSource = Actoren;
-            //newFormulier.TbNaam.Text = newFormulier.Case.Naam;
-            newFormulier.ShowDialog();
-            
-        }
+
+        //private void addForms()
+        //{
+        //    Form2 newFormulier = new Form2(tbUseCaseName.Text);
+        //    UseCases.Add(newFormulier.Case);
+        //    newFormulier.CbActoren.Refresh();
+        //    newFormulier.CbActoren.DataSource = Actoren;
+        //    newFormulier.TbNaam.Text = newFormulier.Case.Naam;
+        //    newFormulier.Show();
+        //}
         private void EditForms()
         {
-            
+
         }
 
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
         {
+
             g = pbTeken.CreateGraphics();
             addRemoveActors();
             Draw drawings = new Draw(e.Y, e.X, g);
+
+            //Drawing UseCases
             if (rbAdd.Checked && rbUseCase.Checked == true)
             {
                 if (tbUseCaseName.Text != "")
                 {
-                    drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text);
-                    addForms();
+                    drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren);
                 }
                 else
                 {
@@ -165,18 +164,12 @@ namespace Use_Cases
             {
                 drawings.deleteUseCase(tbUseCaseName.Text);
             }
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-        
-        public PictureBox PictureboxOne
-        {
-            get { return pbActorOne; }
-            set { pbActorOne = value; }
-        }
+
     }
 }
