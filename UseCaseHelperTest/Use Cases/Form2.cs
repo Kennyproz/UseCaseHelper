@@ -12,24 +12,29 @@ namespace Use_Cases
 {
     public partial class Form2 : Form
     {
+        public UseCase Case;
+
         public Form2(string naam)
         {
             InitializeComponent();
+            
             Case = new UseCase(naam);
         }
-        
-        public UseCase Case;
+        public Form2(UseCase Case)
+        {
+            InitializeComponent();
+            this.Case = Case;
+            tbNaam.Text = Convert.ToString(Case.Naam);
+            tbSamenvatting.Text = Case.Samenvatting;
+            tbAannamen.Text = Case.Aannamen;
+            tbBeschrijving.Text = Case.Beschrijving;
+            tbUitzonderingen.Text = Case.Uitzondering  ;
+            tbResultaat.Text = Case.Resultaat; 
+        }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-            Case.Naam = tbNaam.Text;
-            Case.Samenvatting = tbSamenvatting.Text;
-            Case.Aannamen = tbAannamen.Text;
-            
-            Case.Beschrijving = tbBeschrijving.Text;
-            Case.Uitzondering = tbUitzonderingen.Text;
-            Case.Resultaat = tbResultaat.Text;
+  
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -39,6 +44,7 @@ namespace Use_Cases
 
         private void cbActoren_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Adding Actors to Listbox
             if (cbActoren.SelectedItem != null)
             {
                 if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem) == false)
@@ -90,6 +96,20 @@ namespace Use_Cases
         {
             get { return tbUitzonderingen; }
             set { tbUitzonderingen = value; }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Case.Naam = tbNaam.Text;
+            Case.Samenvatting = tbSamenvatting.Text;
+            Case.Aannamen = tbAannamen.Text;
+            Case.Beschrijving = tbBeschrijving.Text;
+            Case.Uitzondering = tbUitzonderingen.Text;
+            Case.Resultaat = tbResultaat.Text;
+            e.Cancel = true;
+            this.Hide();
+            
+       
         }
     }
 }

@@ -134,5 +134,14 @@ namespace Use_Cases
         {
             this.naam = naam; 
         }
+        public UseCase(UseCase Case)
+        {
+            Case.naam = naam;
+            Case.samenvatting = samenvatting;
+            Case.aannamen = aannamen;
+            Case.beschrijving = beschrijving;
+            Case.uitzondering = uitzondering;
+            Case.resultaat = resultaat;
+        }
     }
 }

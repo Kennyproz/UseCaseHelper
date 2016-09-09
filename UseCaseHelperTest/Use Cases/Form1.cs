@@ -153,16 +153,21 @@ namespace Use_Cases
             {
                 if (tbUseCaseName.Text != "")
                 {
-                    drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren);
+                    drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren,UseCases);
                 }
                 else
                 {
                     MessageBox.Show("Oops, No Use Case Name!");
                 }
             }
-            else if (rbRemove.Checked && rbUseCase.Checked == true)
+            else if (rbRemove.Checked && rbUseCase.Checked)
             {
-                drawings.deleteUseCase(tbUseCaseName.Text);
+                drawings.deleteUseCase(tbUseCaseName.Text,UseCases);
+            }
+            if (rbEdit.Checked && rbUseCase.Checked)
+            {
+                drawings.saveUseCase(UseCases);
+               
             }
         }
 
