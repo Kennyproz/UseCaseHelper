@@ -14,6 +14,12 @@ namespace Use_Cases
         private string beschrijving;
         private string uitzondering;
         private string resultaat;
+        private string actor1;
+        private string actor2;
+        private string actor3;
+        private bool actornaam1;
+        private bool actornaam2;
+        private bool actornaam3;
         private bool select;
         private int x;
         private int y;
@@ -135,18 +141,91 @@ namespace Use_Cases
             }
         }
 
+        public bool Actornaam1
+        {
+            get
+            {
+                return actornaam1;
+            }
+
+            set
+            {
+                actornaam1 = value;
+            }
+        }
+
+        public bool Actornaam2
+        {
+            get
+            {
+                return actornaam2;
+            }
+
+            set
+            {
+                actornaam2 = value;
+            }
+        }
+
+        public bool Actornaam3
+        {
+            get
+            {
+                return actornaam3;
+            }
+
+            set
+            {
+                actornaam3 = value;
+            }
+        }
+
+        public string Actor1
+        {
+            get
+            {
+                return actor1;
+            }
+
+            set
+            {
+                actor1 = value;
+            }
+        }
+
+        public string Actor2
+        {
+            get
+            {
+                return actor2;
+            }
+
+            set
+            {
+                actor2 = value;
+            }
+        }
+
+        public string Actor3
+        {
+            get
+            {
+                return actor3;
+            }
+
+            set
+            {
+                actor3 = value;
+            }
+        }
+
         public UseCase(string naam)
         {
             this.naam = naam; 
         }
         public UseCase(UseCase Case)
         {
-            Case.naam = naam;
-            Case.samenvatting = samenvatting;
-            Case.aannamen = aannamen;
-            Case.beschrijving = beschrijving;
-            Case.uitzondering = uitzondering;
-            Case.resultaat = resultaat;
+      
         }
     }
 }

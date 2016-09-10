@@ -50,15 +50,16 @@ namespace Use_Cases
             Final.Add(newFormulier.Case);
             newFormulier.Show();
         }
-        public void deleteUseCase(List<UseCase> DeleteCases)
+        public void deleteUseCase(List<UseCase> UseCases)
         {
-            foreach (UseCase DeleteCase in DeleteCases) 
+            foreach (UseCase DeleteCase in UseCases) 
             {
-                if (DeleteCases != null && DeleteCase.Select == true)
+                
+                if (UseCases != null && DeleteCase.Select == true)
                 {
                     teken.DrawEllipse(MyPenGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
                     teken.FillEllipse(MyGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
-                    DeleteCases.Remove(DeleteCase);
+                    UseCases.Remove(DeleteCase);
                 }
                 else
                 {
@@ -67,30 +68,37 @@ namespace Use_Cases
             }
            
         }
-        public void Selected(List<UseCase> SelectedCases)
+        public void Selected(List<UseCase> UseCases,List<Actors> Actorlist)
         { 
-            foreach (UseCase SelectedC in SelectedCases)
+            foreach (UseCase SelectedC in UseCases)
             {
                 if (SelectedC.X + 10 > X - 30 && SelectedC.X + 10 < X + 20 && SelectedC.Y + 10 > Y - 20 && SelectedC.Y + 10 < Y + 20)
                 {
-                    SelectedC.Select = true;
+                    // SelectedC.Select = true;
+                    teken.DrawEllipse(MyPenGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
+                    teken.FillEllipse(MyGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
                     teken.DrawEllipse(MyPenRed, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
+                    teken.DrawString(SelectedC.Naam, font, MyBrush, SelectedC.X + 5, SelectedC.Y + 8);
                     MessageBox.Show(SelectedC.Naam + " has been Selected!");
                     Form2 OpenUseCase = new Form2(SelectedC);
+                    
+                    OpenUseCase.CbActoren.Refresh();
+                    OpenUseCase.CbActoren.DataSource = Actorlist;
+                    OpenUseCase.CbActoren.SelectedIndex = -1;
+                    
                     OpenUseCase.Show();
                 }
                 else
                 {
-                    DeSelected(SelectedCases);
+                    DeSelected(UseCases);
                 }
-                
             }
             
         }
-        public void DeSelected(List<UseCase> CaseList)
+        public void DeSelected(List<UseCase> Usecases)
         {
 
-            foreach (UseCase DeSelectedCase in CaseList)
+            foreach (UseCase DeSelectedCase in Usecases)
             {
                 if (Select == true)
                 {
@@ -99,15 +107,44 @@ namespace Use_Cases
                 else if (Select == false)
                 {
                     teken.DrawEllipse(MyPen, DeSelectedCase.X, DeSelectedCase.Y, DeSelectedCase.Naam.Length * 10, 40);
-                    // MessageBox.Show(DeSelectedCase.Naam + " has been deselected!");
+                   // MessageBox.Show(DeSelectedCase.Naam + " has been deselected!");
                 }
             }
         }
-        public void saveUseCase()
+        public void Drawline(List<UseCase> Usecases,List<Actors> Actors)
         {
-           
+
+            foreach (Actors actor in Actors) 
+            {
+                foreach (UseCase value in Usecases)
+                {
+                    if (value.Actornaam1 == true)
+                    {
+                        Point point1 = new Point(actor.X1, actor.Y1);
+                        Point point2 = new Point(value.X + 10, value.Y + 10);
+                        teken.DrawLine(MyPen, point1, point2);
+                    }
+                    if (value.Actornaam2 == true)
+                    {
+                        Point point1 = new Point(actor.X1, actor.Y1);
+                        Point point2 = new Point(value.X + 10, value.Y + 10);
+                        teken.DrawLine(MyPen, point1, point2);
+                    }
+                    if (value.Actornaam3 == true)
+                    {
+                        Point point1 = new Point(actor.X1, actor.Y1);
+                        Point point2 = new Point(value.X + 10, value.Y + 10);
+                        teken.DrawLine(MyPen, point1, point2);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                
+            }
                     //Point point1 = new Point(80, 80);
-                    //Point point2 = new Point(value.X+10, value.Y+10);
+                    
                     //teken.DrawLine(MyPen, point1, point2);
                     //teken.DrawRectangle(MyPen, X+10, Y+10,10,10);
                     //teken.DrawRectangle(MyPen, value.X, value.Y , 10, 10);

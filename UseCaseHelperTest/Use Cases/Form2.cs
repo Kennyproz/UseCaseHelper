@@ -24,12 +24,15 @@ namespace Use_Cases
             InitializeComponent();
             this.Case = Case;
             //Returning the Case Information
+            Case.Select = true;
             tbNaam.Text = Convert.ToString(Case.Naam);
             tbSamenvatting.Text = Case.Samenvatting;
             tbAannamen.Text = Case.Aannamen;
             tbBeschrijving.Text = Case.Beschrijving;
             tbUitzonderingen.Text = Case.Uitzondering  ;
-            tbResultaat.Text = Case.Resultaat; 
+            tbResultaat.Text = Case.Resultaat;
+           // lbActoren.Items.Add(Case.Actornaam1);
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -68,6 +71,12 @@ namespace Use_Cases
             set { tbNaam = value; }
         }
 
+        public ListBox listbActoren
+        {
+            get { return lbActoren; }
+            set { lbActoren = value; }
+        }
+
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Saving the Case 
@@ -77,8 +86,32 @@ namespace Use_Cases
             Case.Beschrijving = tbBeschrijving.Text;
             Case.Uitzondering = tbUitzonderingen.Text;
             Case.Resultaat = tbResultaat.Text;
+            foreach (Actors actor in lbActoren.Items)
+            {
+                if (actor.Y1 <= 180)
+                {
+                    Case.Actornaam1 = true;
+                    Case.Actor1 = actor.Name;
+                }
+                if (actor.Y1 >= 190 && actor.Y1 <= 465)
+                {
+                    Case.Actornaam2 = true;
+                    Case.Actor2 = actor.Name;
+                }
+                if (actor.Y1 >= 469)
+                {
+                    Case.Actornaam3 = true;
+                    Case.Actor3 = actor.Name;
+                }
+            }
+            Case.Select = false;
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void lbActoren_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lbActoren.Items.Remove(lbActoren.SelectedItem);
         }
     }
 }

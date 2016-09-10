@@ -159,6 +159,7 @@
             this.lbActoren.Name = "lbActoren";
             this.lbActoren.Size = new System.Drawing.Size(272, 56);
             this.lbActoren.TabIndex = 28;
+            this.lbActoren.SelectedValueChanged += new System.EventHandler(this.lbActoren_SelectedValueChanged);
             // 
             // cbActoren
             // 

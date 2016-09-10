@@ -13,6 +13,8 @@ namespace Use_Cases
         private string name;
         private PictureBox actorimage;
         private Label actorlabel;
+        private int X;
+        private int Y;
 
         public string Name
         {
@@ -50,6 +52,32 @@ namespace Use_Cases
             set
             {
                 actorlabel = value;
+            }
+        }
+
+        public int X1
+        {
+            get
+            {
+                return X;
+            }
+
+            set
+            {
+                X = value;
+            }
+        }
+
+        public int Y1
+        {
+            get
+            {
+                return Y;
+            }
+
+            set
+            {
+                Y = value;
             }
         }
 

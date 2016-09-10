@@ -37,6 +37,10 @@ namespace Use_Cases
             if (g != null)
             {
                 g.Clear(Color.White);
+                foreach(UseCase item in UseCases)
+                {
+                    UseCases.Remove(item);
+                }
             }
             else
             {
@@ -62,6 +66,8 @@ namespace Use_Cases
                     if (tbActorName.Text != "")
                     {
                         ActorOne = new Actors(tbActorName.Text, lbActorOne, pbActorOne);
+                        ActorOne.X1 = 100;
+                        ActorOne.Y1 = 90;
                         ActorOne.AddActor(tbActorName.Text);
                         Actoren.Add(ActorOne);
                     }
@@ -75,6 +81,8 @@ namespace Use_Cases
                     if (tbActorName.Text != "")
                     {
                         ActorTwo = new Actors(tbActorName.Text, lbActorTwo, pbActorTwo);
+                        ActorTwo.Y1 = 250;
+                        ActorTwo.X1 = 100;
                         ActorTwo.AddActor(tbActorName.Text);
                         Actoren.Add(ActorTwo);
                     }
@@ -88,6 +96,8 @@ namespace Use_Cases
                     if (tbActorName.Text != "")
                     {
                         ActorThree = new Actors(tbActorName.Text, lbActorThree, pbActorThree);
+                        ActorThree.Y1 = 350;
+                        ActorThree.X1 = 118; 
                         ActorThree.AddActor(tbActorName.Text);
                         Actoren.Add(ActorThree);
                     }
@@ -127,18 +137,27 @@ namespace Use_Cases
             }
         }
 
+        private void drawLine()
+        {
+            if (rbLine.Checked && rbEdit.Checked)
+            {
+
+            }
+        }
+
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
         {
             g = pbTeken.CreateGraphics();
             addRemoveActors();
             Draw drawings = new Draw(e.Y, e.X, g);
-
+            
             //Drawing UseCases
             if (rbAdd.Checked && rbUseCase.Checked == true)
             {
                 if (tbUseCaseName.Text != "")
                 {
                     drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren,UseCases);
+                    drawings.Drawline(UseCases, Actoren); 
                 }
                 else
                 {
@@ -151,7 +170,7 @@ namespace Use_Cases
             }
             if (rbEdit.Checked && rbUseCase.Checked)
             {
-                drawings.Selected(UseCases);
+                drawings.Selected(UseCases,Actoren);
             }
         }
 
