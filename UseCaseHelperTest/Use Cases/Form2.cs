@@ -31,13 +31,26 @@ namespace Use_Cases
             tbBeschrijving.Text = Case.Beschrijving;
             tbUitzonderingen.Text = Case.Uitzondering  ;
             tbResultaat.Text = Case.Resultaat;
-           // lbActoren.Items.Add(Case.Actornaam1);
             
+            if (Case.Actors != null)
+            {
+               // lbActoren.DataSource = null;
+               // lbActoren.DataSource = Case.Actors;
+            }
+            //    foreach (Actors actor in Case.Actors)
+            //   {
+            //        lbActoren.Items.Add(actor);
+            //   }
+            //}
+            //else
+            //{
+            //    return;
+            //}
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            lbActoren.Items.Clear();
+            
         }
 
         private void cbActoren_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,7 +65,9 @@ namespace Use_Cases
                 }
                 else if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem))
                 {
-                    MessageBox.Show("Actor already added!");
+                    lbActoren.Items.Remove(cbActoren.SelectedItem);
+                    return;
+                    //MessageBox.Show("Actor already added!");
                 }
             }
             else if (lbActoren.Items.Count == 0)
@@ -88,21 +103,8 @@ namespace Use_Cases
             Case.Resultaat = tbResultaat.Text;
             foreach (Actors actor in lbActoren.Items)
             {
-                if (actor.Y1 <= 180)
-                {
-                    Case.Actornaam1 = true;
-                    Case.Actor1 = actor.Name;
-                }
-                if (actor.Y1 >= 190 && actor.Y1 <= 465)
-                {
-                    Case.Actornaam2 = true;
-                    Case.Actor2 = actor.Name;
-                }
-                if (actor.Y1 >= 469)
-                {
-                    Case.Actornaam3 = true;
-                    Case.Actor3 = actor.Name;
-                }
+                actor.Select = true;
+                Case.Actors.Add(actor);
             }
             Case.Select = false;
             e.Cancel = true;
@@ -111,7 +113,22 @@ namespace Use_Cases
 
         private void lbActoren_SelectedValueChanged(object sender, EventArgs e)
         {
-            lbActoren.Items.Remove(lbActoren.SelectedItem);
+            lbActoren.ClearSelected();
+            //lbActoren.Items.Remove(lbActoren.SelectedValue);
+        //    if (Case.Actors != null)
+        //    {
+        //    foreach (Actors actor in Case.Actors)
+        //    {
+        //        if (lbActoren.SelectedItem.Equals(actor))
+        //        {
+        //            Case.Actors.Remove(actor);
+        //        }
+        //    }
+        //}
+        //    else
+        //    {
+        //        return;
+        //    }
         }
     }
 }

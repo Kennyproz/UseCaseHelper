@@ -15,6 +15,7 @@ namespace Use_Cases
         private Label actorlabel;
         private int X;
         private int Y;
+        private bool select = false;
 
         public string Name
         {
@@ -78,6 +79,19 @@ namespace Use_Cases
             set
             {
                 Y = value;
+            }
+        }
+
+        public bool Select
+        {
+            get
+            {
+                return select;
+            }
+
+            set
+            {
+                select = value;
             }
         }
 

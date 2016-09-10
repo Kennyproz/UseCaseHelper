@@ -46,8 +46,6 @@ namespace Use_Cases
             {
                 MessageBox.Show("Nothing to Clear!");
             }
-
-
         }
         private void hideActors()
         {
@@ -82,7 +80,7 @@ namespace Use_Cases
                     {
                         ActorTwo = new Actors(tbActorName.Text, lbActorTwo, pbActorTwo);
                         ActorTwo.Y1 = 250;
-                        ActorTwo.X1 = 100;
+                        ActorTwo.X1 = 90;
                         ActorTwo.AddActor(tbActorName.Text);
                         Actoren.Add(ActorTwo);
                     }
@@ -96,8 +94,8 @@ namespace Use_Cases
                     if (tbActorName.Text != "")
                     {
                         ActorThree = new Actors(tbActorName.Text, lbActorThree, pbActorThree);
-                        ActorThree.Y1 = 350;
-                        ActorThree.X1 = 118; 
+                        ActorThree.Y1 = 390;
+                        ActorThree.X1 = 90; 
                         ActorThree.AddActor(tbActorName.Text);
                         Actoren.Add(ActorThree);
                     }
@@ -139,10 +137,7 @@ namespace Use_Cases
 
         private void drawLine()
         {
-            if (rbLine.Checked && rbEdit.Checked)
-            {
-
-            }
+            
         }
 
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
@@ -154,10 +149,11 @@ namespace Use_Cases
             //Drawing UseCases
             if (rbAdd.Checked && rbUseCase.Checked == true)
             {
+               drawings.Drawline(UseCases, Actoren);
                 if (tbUseCaseName.Text != "")
                 {
                     drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren,UseCases);
-                    drawings.Drawline(UseCases, Actoren); 
+                     
                 }
                 else
                 {
@@ -171,6 +167,10 @@ namespace Use_Cases
             if (rbEdit.Checked && rbUseCase.Checked)
             {
                 drawings.Selected(UseCases,Actoren);
+            }
+            if (rbLine.Checked && rbAdd.Checked)
+            {
+                drawings.Drawline(UseCases,Actoren);
             }
         }
 
