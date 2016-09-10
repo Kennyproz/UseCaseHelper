@@ -149,7 +149,7 @@ namespace Use_Cases
                     else if (actor.Select == false)
                     {
                         Point point1 = new Point(actor.X1, actor.Y1);
-                        Point point2 = new Point(usecase.X, usecase.Y);
+                        Point point2 = new Point(usecase.X+10, usecase.Y);
                         teken.DrawLine(MyPenGum, point1, point2);
                     }
                   }
