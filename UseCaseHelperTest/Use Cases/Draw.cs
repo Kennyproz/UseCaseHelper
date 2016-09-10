@@ -48,6 +48,7 @@ namespace Use_Cases
             newFormulier.TbNaam.Text = newFormulier.Case.Naam;
             //newFormulier.listbActoren.DataSource = newFormulier.Case.Actors;
             Final.Add(newFormulier.Case);
+            Drawline(Final, ActorList);
             newFormulier.Show();
         }
         public void deleteUseCase(List<UseCase> UseCases)
@@ -66,6 +67,13 @@ namespace Use_Cases
                     {
                         teken.DrawEllipse(MyPenGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
                         teken.FillEllipse(MyGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
+                        foreach (Actors actor in DeleteCase.Actors)
+                        {
+                            Point point1 = new Point(actor.X1, actor.Y1);
+                            Point point2 = new Point(DeleteCase.X + 10, DeleteCase.Y + 10);
+                            teken.DrawLine(MyPenGum, point1, point2);
+                        }
+
                         usecaselist.Add(DeleteCase);
                     }
                     else
@@ -86,7 +94,7 @@ namespace Use_Cases
             {
                 if (SelectedC.X + 10 > X - 30 && SelectedC.X + 10 < X + 20 && SelectedC.Y + 10 > Y - 20 && SelectedC.Y + 10 < Y + 20)
                 {
-                    // SelectedC.Select = true;
+                     SelectedC.Select = true;
                     Drawline(UseCases, Actorlist);
                     teken.DrawEllipse(MyPenGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
                     teken.FillEllipse(MyGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
@@ -126,21 +134,26 @@ namespace Use_Cases
         }
         public void Drawline(List<UseCase> Usecases,List<Actors> Actors)
         {
-            foreach (Actors actor in Actors)
+
+            foreach (UseCase usecase in Usecases)
             {
-                if (actor.Select == true)
-                {
-                    if (newFormulier != null)
+                foreach (Actors actor in Actors)
+                   {
+                    if (actor.Select == true)
+                         {
+                        //Selected(Usecases,Actors);
+                               Point point1 = new Point(actor.X1, actor.Y1);
+                               Point point2 = new Point(usecase.X+10, usecase.Y);
+                               teken.DrawLine(MyPen, point1, point2);
+                         }
+                    else if (actor.Select == false)
                     {
                         Point point1 = new Point(actor.X1, actor.Y1);
-                        Point point2 = new Point(newFormulier.Case.X + 10, newFormulier.Case.Y + 10);
-                        teken.DrawLine(MyPen, point1, point2);
+                        Point point2 = new Point(usecase.X, usecase.Y);
+                        teken.DrawLine(MyPenGum, point1, point2);
                     }
-                }
-                else
-                {
-                    return;
-                }
+                  }
+               
             }
          
 

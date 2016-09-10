@@ -34,18 +34,8 @@ namespace Use_Cases
             
             if (Case.Actors != null)
             {
-               // lbActoren.DataSource = null;
-               // lbActoren.DataSource = Case.Actors;
+       
             }
-            //    foreach (Actors actor in Case.Actors)
-            //   {
-            //        lbActoren.Items.Add(actor);
-            //   }
-            //}
-            //else
-            //{
-            //    return;
-            //}
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -66,6 +56,7 @@ namespace Use_Cases
                 else if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem))
                 {
                     lbActoren.Items.Remove(cbActoren.SelectedItem);
+                    ((Actors)cbActoren.SelectedItem).Select = false;
                     return;
                     //MessageBox.Show("Actor already added!");
                 }
