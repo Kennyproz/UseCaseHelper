@@ -64,12 +64,6 @@ namespace Use_Cases
             set { tbNaam = value; }
         }
 
-        public ListBox listbActoren
-        {
-            get { return lbActoren; }
-            set { lbActoren = value; }
-        }
-
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Saving the Case 

@@ -27,11 +27,6 @@ namespace Use_Cases
             hideActors();   
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             List<UseCase> ErrorFix = new List<UseCase>();//https://www.dotnetperls.com/invalidoperationexception
@@ -62,7 +57,13 @@ namespace Use_Cases
             pbActorTwo.Hide();
             pbActorThree.Hide();
         }
-
+        private void actorsadding(Actors actor, int x)
+        {
+            actor.X1 = x;
+            actor.Y1 = 90;
+            actor.AddActor(tbActorName.Text);
+            Actoren.Add(actor);
+        }
         private void addRemoveActors()
         {
             //Add Actors
@@ -72,11 +73,8 @@ namespace Use_Cases
                 {
                     if (tbActorName.Text != "")
                     {
-                        ActorOne = new Actors(tbActorName.Text, lbActorOne, pbActorOne);
-                        ActorOne.X1 = 100;
-                        ActorOne.Y1 = 90;
-                        ActorOne.AddActor(tbActorName.Text);
-                        Actoren.Add(ActorOne);
+                     ActorOne = new Actors(tbActorName.Text, lbActorOne, pbActorOne);
+                     actorsadding(ActorOne, 100);
                     }
                     else
                     {
@@ -88,10 +86,7 @@ namespace Use_Cases
                     if (tbActorName.Text != "")
                     {
                         ActorTwo = new Actors(tbActorName.Text, lbActorTwo, pbActorTwo);
-                        ActorTwo.Y1 = 250;
-                        ActorTwo.X1 = 90;
-                        ActorTwo.AddActor(tbActorName.Text);
-                        Actoren.Add(ActorTwo);
+                        actorsadding(ActorTwo, 250); 
                     }
                     else
                     {
@@ -102,11 +97,8 @@ namespace Use_Cases
                 {
                     if (tbActorName.Text != "")
                     {
-                        ActorThree = new Actors(tbActorName.Text, lbActorThree, pbActorThree);
-                        ActorThree.Y1 = 390;
-                        ActorThree.X1 = 90; 
-                        ActorThree.AddActor(tbActorName.Text);
-                        Actoren.Add(ActorThree);
+                        ActorThree = new Actors(tbActorName.Text, lbActorTwo, pbActorThree);
+                        actorsadding(ActorThree, 390);
                     }
                     else
                     {
