@@ -24,11 +24,8 @@ namespace Use_Cases
         public Form1()
         {
             InitializeComponent();
-            hideActors();
-            
+            hideActors();   
         }
-      
-
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -37,10 +34,18 @@ namespace Use_Cases
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<UseCase> ErrorFix = new List<UseCase>();//https://www.dotnetperls.com/invalidoperationexception
             if (g != null)
             {
-                g.Clear(Color.White);
+                 g.Clear(Color.White);
                 foreach(UseCase item in UseCases)
+                {
+                    if (UseCases.Count != 0)
+                    {
+                        ErrorFix.Add(item);
+                    }
+                }
+                foreach (UseCase item in ErrorFix)
                 {
                     UseCases.Remove(item);
                 }
@@ -146,8 +151,7 @@ namespace Use_Cases
         {
             g = pbTeken.CreateGraphics();
             // om de lijnen mooier te maken (https://msdn.microsoft.com/en-us/library/system.drawing.graphics.smoothingmode(v=vs.110).aspx)
-            g.SmoothingMode =
-       System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             addRemoveActors();
             Draw drawings = new Draw(e.Y, e.X, g);
@@ -159,8 +163,6 @@ namespace Use_Cases
                 if (tbUseCaseName.Text != "")
                 {
                     drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren,UseCases);
-                    
-                    drawings.redraw(UseCases, Actoren, pbTeken); 
                 }
                 else
                 {
@@ -169,7 +171,7 @@ namespace Use_Cases
             }
             else if (rbRemove.Checked && rbUseCase.Checked)
             {
-                drawings.Drawline(UseCases, Actoren);
+                //drawings.Drawline(UseCases, Actoren);
                 drawings.deleteUseCase(UseCases);
             }
             if (rbEdit.Checked && rbUseCase.Checked)

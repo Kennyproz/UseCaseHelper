@@ -27,7 +27,7 @@ namespace Use_Cases
             MyPenRed = new Pen(Color.Red, 2);
             MyBrush = new SolidBrush(Color.Black);
             MyGum = new SolidBrush(Color.White);
-            MyPenGum = new Pen(Color.White, 2);
+            MyPenGum = new Pen(Color.White, 4);
             font = new Font("Arial", 11);
             this.teken = teken;
             this.Y = Y;
@@ -42,49 +42,36 @@ namespace Use_Cases
             newFormulier = new Form2(text);
             newFormulier.Case.Y = Y;
             newFormulier.Case.X = X;
-            newFormulier.CbActoren.Refresh();
-            newFormulier.CbActoren.DataSource = ActorList;
-            newFormulier.CbActoren.SelectedIndex = -1;
             newFormulier.TbNaam.Text = newFormulier.Case.Naam;
             Final.Add(newFormulier.Case);
-            newFormulier.Show();
+            opening(newFormulier, ActorList);
         }
         public void deleteUseCase(List<UseCase> UseCases)
         {
-            if (UseCases != null)
+            List<UseCase> ErrorFix = new List<UseCase>(); 
+            foreach (UseCase SelectedC in UseCases)
             {
-                List<UseCase> usecaselist = new List<UseCase>();
-                foreach (UseCase DeleteCase in UseCases)
+                if (SelectedC.X + 10 > X - 30 && SelectedC.X + 10 < X + 20 && SelectedC.Y + 10 > Y - 20 && SelectedC.Y + 10 < Y + 20)
                 {
-                    if (DeleteCase.X + 10 > X - 30 && DeleteCase.X + 10 < X + 20 && DeleteCase.Y + 10 > Y - 20 && DeleteCase.Y + 10 < Y + 20)
+                    //SelectedC.Select = true;
+                    drawGum(SelectedC,MyPenGum,MyGum);
+                    foreach (Actors actor in SelectedC.Actors)
                     {
-                        DeleteCase.Select = true;
+                        drawActorLine(SelectedC, actor, MyPenGum);
                     }
-
-                    if (UseCases != null && DeleteCase.Select == true)
-                    {
-                        teken.DrawEllipse(MyPenGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
-                        teken.FillEllipse(MyGum, DeleteCase.X, DeleteCase.Y, DeleteCase.Naam.Length * 10, 40);
-                        foreach (Actors actor in DeleteCase.Actors)
-                        {
-                            Point point1 = new Point(actor.X1, actor.Y1);
-                            Point point2 = new Point(DeleteCase.X, DeleteCase.Y + 20);
-                            teken.DrawLine(MyPenGum, point1, point2);
-                        }
-
-                        usecaselist.Add(DeleteCase);
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    ErrorFix.Add(SelectedC);
+                    MessageBox.Show(SelectedC.Naam + " has been Removed!");
                 }
-                foreach (UseCase DeleteCase in usecaselist)
+                else
                 {
-                    UseCases.Remove(DeleteCase);
+                    DeSelected(UseCases);
                 }
             }
-
+            foreach (UseCase item in ErrorFix)
+            {
+                UseCases.Remove(item);
+                drawGum(item,MyPenGum,MyGum);
+            }
         }
         public void Selected(List<UseCase> UseCases, List<Actors> Actorlist)
         {
@@ -93,16 +80,12 @@ namespace Use_Cases
                 if (SelectedC.X + 10 > X - 30 && SelectedC.X + 10 < X + 20 && SelectedC.Y + 10 > Y - 20 && SelectedC.Y + 10 < Y + 20)
                 {
                     SelectedC.Select = true;
-                    teken.DrawEllipse(MyPenGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
-                    teken.FillEllipse(MyGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
+                    drawGum(SelectedC,MyPenGum,MyGum);
                     teken.DrawEllipse(MyPenRed, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
                     teken.DrawString(SelectedC.Naam, font, MyBrush, SelectedC.X + SelectedC.Naam.Length / 2, SelectedC.Y + 8);
                     MessageBox.Show(SelectedC.Naam + " has been Selected!");
                     Form2 OpenUseCase = new Form2(SelectedC);
-
-                    OpenUseCase.CbActoren.Refresh();
-                    OpenUseCase.CbActoren.DataSource = Actorlist;
-                    
+                    opening(OpenUseCase, Actorlist);
                     Drawline(UseCases, Actorlist);
                     OpenUseCase.Show();
                 }
@@ -140,46 +123,34 @@ namespace Use_Cases
                     {
                         if (actor.Select == true)
                         {
-                          
-                            Point point1 = new Point(actor.X1, actor.Y1);
-                            Point point2 = new Point(usecase.X, usecase.Y + 20);
-                            teken.DrawLine(MyPen, point1, point2);
+                            drawActorLine(usecase, actor,MyPen);
                         }
                         else if (actor.Select == false)
                         {
-                            Point point1 = new Point(actor.X1, actor.Y1);
-                            Point point2 = new Point(usecase.X, usecase.Y + 20);
-                            teken.DrawLine(MyPenGum, point1, point2);
+                            drawActorLine(usecase, actor, MyPenGum);
                         }
                     }
                 }
             }
 
         }
-        public void select(List<UseCase> Usecases)
+        private void drawGum(UseCase item,Pen pen, SolidBrush brush)
         {
-            foreach (UseCase SelectedC in Usecases)
-            {
-                if (SelectedC.X + 10 > X - 30 && SelectedC.X + 10 < X + 20 && SelectedC.Y + 10 > Y - 20 && SelectedC.Y + 10 < Y + 20)
-                {
-                    SelectedC.Select = true;
-                    teken.DrawEllipse(MyPenGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
-                    teken.FillEllipse(MyGum, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
-                    teken.DrawEllipse(MyPenRed, SelectedC.X, SelectedC.Y, SelectedC.Naam.Length * 10, 40);
-                    teken.DrawString(SelectedC.Naam, font, MyBrush, SelectedC.X + 5, SelectedC.Y + 8);
-                    MessageBox.Show(SelectedC.Naam + " has been Selected!");
-                }
-            }
-
+            teken.DrawEllipse(pen, item.X, item.Y, item.Naam.Length * 10, 40);
+            teken.FillEllipse(brush, item.X, item.Y, item.Naam.Length * 10, 40);
         }
-        public void redraw(List<UseCase> Usecases,List<Actors> Actors,PictureBox pb)
+        private void drawActorLine(UseCase item, Actors actor, Pen pen)
         {
-           // pb.Refresh();
-            //foreach (UseCase pos in Usecases)
-            //{
-            //    DrawUseCase(pos.X, pos.Y, pos.Naam, Actors, Usecases);
-            //    Drawline(Usecases, Actors);
-            //}
+            Point point1 = new Point(actor.X1, actor.Y1);
+            Point point2 = new Point(item.X, item.Y + 20);
+            teken.DrawLine(pen, point1, point2);
+        }
+        private void opening(Form2 form2,List<Actors> actors)
+        {
+            form2.CbActoren.Refresh();
+            form2.CbActoren.DataSource = actors;
+            form2.CbActoren.SelectedIndex = -1;
+            form2.Show();
         }
     }
 }
