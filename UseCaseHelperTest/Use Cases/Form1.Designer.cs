@@ -35,6 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbTeken = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbEdit = new System.Windows.Forms.RadioButton();
             this.rbRemove = new System.Windows.Forms.RadioButton();
             this.rbAdd = new System.Windows.Forms.RadioButton();
             this.btClear = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.tbActorName = new System.Windows.Forms.TextBox();
             this.lbUseCaseName = new System.Windows.Forms.Label();
             this.tbUseCaseName = new System.Windows.Forms.TextBox();
-            this.rbEdit = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeken)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -125,6 +125,17 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modus";
+            // 
+            // rbEdit
+            // 
+            this.rbEdit.AutoSize = true;
+            this.rbEdit.Location = new System.Drawing.Point(14, 42);
+            this.rbEdit.Name = "rbEdit";
+            this.rbEdit.Size = new System.Drawing.Size(43, 17);
+            this.rbEdit.TabIndex = 2;
+            this.rbEdit.TabStop = true;
+            this.rbEdit.Text = "Edit";
+            this.rbEdit.UseVisualStyleBackColor = true;
             // 
             // rbRemove
             // 
@@ -247,22 +258,11 @@
             this.tbUseCaseName.Size = new System.Drawing.Size(100, 20);
             this.tbUseCaseName.TabIndex = 18;
             // 
-            // rbEdit
-            // 
-            this.rbEdit.AutoSize = true;
-            this.rbEdit.Location = new System.Drawing.Point(14, 42);
-            this.rbEdit.Name = "rbEdit";
-            this.rbEdit.Size = new System.Drawing.Size(43, 17);
-            this.rbEdit.TabIndex = 2;
-            this.rbEdit.TabStop = true;
-            this.rbEdit.Text = "Edit";
-            this.rbEdit.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 632);
+            this.ClientSize = new System.Drawing.Size(562, 633);
             this.Controls.Add(this.tbUseCaseName);
             this.Controls.Add(this.lbUseCaseName);
             this.Controls.Add(this.tbActorName);

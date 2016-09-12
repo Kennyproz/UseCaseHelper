@@ -43,6 +43,8 @@
             this.tbBeschrijving = new System.Windows.Forms.TextBox();
             this.lbActoren = new System.Windows.Forms.ListBox();
             this.cbActoren = new System.Windows.Forms.ComboBox();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbResultaat
@@ -168,13 +170,34 @@
             this.cbActoren.Name = "cbActoren";
             this.cbActoren.Size = new System.Drawing.Size(272, 21);
             this.cbActoren.TabIndex = 29;
-            this.cbActoren.SelectedIndexChanged += new System.EventHandler(this.cbActoren_SelectedIndexChanged);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(16, 90);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 23);
+            this.btAdd.TabIndex = 30;
+            this.btAdd.Text = "Add Actor";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // btRemove
+            // 
+            this.btRemove.Location = new System.Drawing.Point(16, 119);
+            this.btRemove.Name = "btRemove";
+            this.btRemove.Size = new System.Drawing.Size(75, 23);
+            this.btRemove.TabIndex = 31;
+            this.btRemove.Text = "Remove Actor";
+            this.btRemove.UseVisualStyleBackColor = true;
+            this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 474);
+            this.Controls.Add(this.btRemove);
+            this.Controls.Add(this.btAdd);
             this.Controls.Add(this.cbActoren);
             this.Controls.Add(this.lbActoren);
             this.Controls.Add(this.tbResultaat);
@@ -216,5 +239,7 @@
         private System.Windows.Forms.TextBox tbBeschrijving;
         private System.Windows.Forms.ListBox lbActoren;
         private System.Windows.Forms.ComboBox cbActoren;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btRemove;
     }
 }

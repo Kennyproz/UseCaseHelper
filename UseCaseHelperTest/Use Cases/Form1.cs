@@ -12,20 +12,23 @@ namespace Use_Cases
 {
     public partial class Form1 : Form
     {
+        public List<UseCase> UseCases = new List<UseCase>();
+        public List<Actors> Actoren = new List<Actors>();
+        Actors ActorOne;
+        Actors ActorTwo;
+        Actors ActorThree;
+        Graphics g;
+        Pen MyPen = new Pen(Color.Black, 4);
+
+
         public Form1()
         {
             InitializeComponent();
             hideActors();
+            
         }
-        public List<UseCase> UseCases = new List<UseCase>();
-        public List<Actors> Actoren = new List<Actors>();
-        public List<Form2> Cases = new List<Form2>();
-        Actors ActorOne;
-        Actors ActorTwo;
-        Actors ActorThree;
+      
 
-        Graphics g;
-        Pen MyPen = new Pen(Color.Black, 4);
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -49,6 +52,7 @@ namespace Use_Cases
         }
         private void hideActors()
         {
+            //Hide Actors
             pbActorOne.Hide();
             pbActorTwo.Hide();
             pbActorThree.Hide();
@@ -115,16 +119,19 @@ namespace Use_Cases
             {
                 if (ActorOne.Name == tbActorName.Text)
                 {
+                    ActorOne.Select = false;
                     ActorOne.RemoveActor();
                     Actoren.Remove(ActorOne);
                 }
                 else if (ActorTwo.Name == tbActorName.Text)
                 {
+                    ActorTwo.Select = false;
                     ActorTwo.RemoveActor();
                     Actoren.Remove(ActorTwo);
                 }
                 else if (ActorThree.Name == tbActorName.Text)
                 {
+                    ActorThree.Select = false;
                     ActorThree.RemoveActor();
                     Actoren.Remove(ActorThree);
                 }
@@ -135,14 +142,13 @@ namespace Use_Cases
             }
         }
 
-        private void drawLine()
-        {
-            
-        }
-
         private void pbTeken_MouseClick(object sender, MouseEventArgs e)
         {
             g = pbTeken.CreateGraphics();
+            // om de lijnen mooier te maken (https://msdn.microsoft.com/en-us/library/system.drawing.graphics.smoothingmode(v=vs.110).aspx)
+            g.SmoothingMode =
+       System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
             addRemoveActors();
             Draw drawings = new Draw(e.Y, e.X, g);
             
@@ -153,7 +159,8 @@ namespace Use_Cases
                 if (tbUseCaseName.Text != "")
                 {
                     drawings.DrawUseCase(e.X, e.Y, tbUseCaseName.Text,Actoren,UseCases);
-                     
+                    
+                    drawings.redraw(UseCases, Actoren, pbTeken); 
                 }
                 else
                 {
@@ -162,12 +169,14 @@ namespace Use_Cases
             }
             else if (rbRemove.Checked && rbUseCase.Checked)
             {
+                drawings.Drawline(UseCases, Actoren);
                 drawings.deleteUseCase(UseCases);
             }
             if (rbEdit.Checked && rbUseCase.Checked)
             {
                 drawings.Selected(UseCases,Actoren);
             }
+            //Drawline
             if (rbLine.Checked && rbAdd.Checked)
             {
                 drawings.Drawline(UseCases,Actoren);

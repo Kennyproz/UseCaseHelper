@@ -31,11 +31,21 @@ namespace Use_Cases
             tbBeschrijving.Text = Case.Beschrijving;
             tbUitzonderingen.Text = Case.Uitzondering  ;
             tbResultaat.Text = Case.Resultaat;
+
             
-            if (Case.Actors != null)
-            {
-       
-            }
+                foreach(Actors actor in Case.Actors)
+                {
+                lbActoren.Items.Clear();
+                if (lbActoren.Items.Contains(actor) == false)
+                {
+                    lbActoren.Items.Add(actor);
+                }
+                else
+                {
+                    return;
+                }
+
+                }
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -43,29 +53,6 @@ namespace Use_Cases
             
         }
 
-        private void cbActoren_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Adding Actors to Listbox
-            if (cbActoren.SelectedItem != null)
-            {
-                if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem) == false)
-                {
-                    lbActoren.Items.Add((Actors)cbActoren.SelectedItem);
-                    lbActoren.Refresh();
-                }
-                else if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem))
-                {
-                    lbActoren.Items.Remove(cbActoren.SelectedItem);
-                    ((Actors)cbActoren.SelectedItem).Select = false;
-                    return;
-                    //MessageBox.Show("Actor already added!");
-                }
-            }
-            else if (lbActoren.Items.Count == 0)
-            {
-                MessageBox.Show("No Actor selected!");
-            }
-        }
         public ComboBox CbActoren
         {
             get { return cbActoren; }
@@ -104,22 +91,44 @@ namespace Use_Cases
 
         private void lbActoren_SelectedValueChanged(object sender, EventArgs e)
         {
-            lbActoren.ClearSelected();
-            //lbActoren.Items.Remove(lbActoren.SelectedValue);
-        //    if (Case.Actors != null)
-        //    {
-        //    foreach (Actors actor in Case.Actors)
-        //    {
-        //        if (lbActoren.SelectedItem.Equals(actor))
-        //        {
-        //            Case.Actors.Remove(actor);
-        //        }
-        //    }
-        //}
-        //    else
-        //    {
-        //        return;
-        //    }
+       
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            //Adding Actors to Listbox
+            if (cbActoren.SelectedValue != null)
+            {
+                if (lbActoren.Items.Contains((Actors)cbActoren.SelectedItem) == false)
+                {
+                    lbActoren.Items.Add((Actors)cbActoren.SelectedItem);
+                    lbActoren.Refresh();
+                }
+               else
+                {
+                    MessageBox.Show("Actor already added!");
+                    return;
+                }
+            }
+            else if (lbActoren.Items.Count == 0)
+            {
+                MessageBox.Show("No Actor selected!");
+            }
+        }
+
+        private void btRemove_Click(object sender, EventArgs e)
+        {
+            if (cbActoren.SelectedValue != null)
+            {
+                if (lbActoren.Items.Contains((Actors)lbActoren.SelectedItem))
+                {
+                    lbActoren.Items.Remove((Actors)lbActoren.SelectedItem);
+                    ((Actors)cbActoren.SelectedItem).Select = false;
+                    lbActoren.Refresh();
+
+                    MessageBox.Show("Actor removed!");
+                }
+            }
         }
     }
 }
